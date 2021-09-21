@@ -1,0 +1,36 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="meow.css"> 
+        <script type="text/javascript">
+       
+    var image = ['meow1.png', 'meow2.png', 'meow3.png', 
+        'meow4.png', 'meow5.png', 'meow6.png', 'meow7.png', 'meow8.png', 
+        'meow9.png', 'meow10.png', 'meow11.png']; 
+
+    window.randomImage = function() {
+        var num = Math.floor( Math.random() * 11);
+        var elem = document.createElement("img");
+        var container = document.getElementById("page_container");
+        var availW = container.offsetWidth  - 400;
+        var availH = container.offsetHeight  - 400;
+        var randomY = Math.round(Math.random() * availH) + 'px';
+        var randomX = Math.round(Math.random() * availW) + 'px';
+        elem.src = image[num];
+        elem.setAttribute("height", "400");
+        elem.setAttribute("width", "400");
+        elem.style.left = randomX;
+        elem.style.top = randomY;
+        container.appendChild(elem);
+    }
+    </script>
+    </head>
+    <body onload="getRandomImage()">
+    <div id="randImage"></div>
+    <div id="page_container"></div>
+    <div class="wrapper">
+    <button class="button" onclick="randomImage()" >click here for a random friend :)</button>
+    </div>
+
+    </body>
+    
+</html>
